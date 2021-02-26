@@ -1,4 +1,3 @@
 # homeexercise
- eBayCodingExercise
- This is the core service to check whether the seller or item 
- is eligible to use the new remote service provided by eBay platform.
+ This is the core service to check whether the seller or the item 
+ is eligible to use the new shipping service provided by eBay platform.
