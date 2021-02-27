@@ -4,8 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,23 +26,14 @@ public class SellerEntity implements Serializable {
 	
 	@Id
 	@Column(name="SELLER_ID")
-	public Integer sellerId;
+	private Integer sellerId;
 	
 	@Column(name="USER_NAME")
-	public String sellerName;
+	private String sellerName;
 	
-	/*
-	 * @OneToOne(fetch=FetchType.LAZY)
-	 * 
-	 * @JoinColumns({
-	 * 
-	 * @JoinColumn(name = "SELLER_ID", referencedColumnName = "SELLER_ID",
-	 * insertable = false, updatable = false),
-	 * 
-	 * @JoinColumn(name = "PROGRAM_ID", referencedColumnName = "PROGRAM_ID",
-	 * insertable = false, updatable = false), })
-	 * 
-	 * @JsonIgnore private SellerProgramMappingEntity mappingId;
-	 */
+	@Column(name="PROGRAM_ID")
+	private Integer programId; 
+
+	 
 
 }
