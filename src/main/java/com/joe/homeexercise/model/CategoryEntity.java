@@ -35,13 +35,10 @@ public class CategoryEntity implements Serializable {
 	
 	@Column(name="CATEGORY_NAME")
 	private String categoryName;
+
 	
-	@Column(name="DESCRIPTION")
-	private String description; 
-	
-	public CategoryEntity(String categoryName,String description){
+	public CategoryEntity(String categoryName){
 		this.categoryName=categoryName;
-		this.description=description;
 		
 	}
 

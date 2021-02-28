@@ -29,14 +29,12 @@ public class SellerEntity implements Serializable {
 	
 	@Column(name="USER_NAME")
 	private String sellerName;
-	
-	@Column(name="PROGRAM_ID")
-	private Integer programId; 
 
-	 public SellerEntity(String sellerName,Integer programId)
+
+	 public SellerEntity(String sellerName)
 	 {
 		 this.sellerName=sellerName;
-		 this.programId=programId;
+
 	 }
 
 }

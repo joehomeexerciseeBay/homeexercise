@@ -43,7 +43,7 @@ public class ItemEligibilityService {
 	{
 		ProgramEntity program = programRepository.findByProgramNameAndActiveInd("remote location shipping program","Y");
 		if(null!=program)
-		return sellerRepository.findBySellerNameAndProgramId(sellerName.toLowerCase(),program.programId)==null?false:true;
+		return sellerRepository.findBySellerName(sellerName.toLowerCase())==null?false:true;
 		return false;
 	}
 	

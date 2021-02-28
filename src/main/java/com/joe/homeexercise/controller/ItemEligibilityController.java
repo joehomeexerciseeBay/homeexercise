@@ -26,17 +26,17 @@ public class ItemEligibilityController {
 	@Autowired
 	private ItemEligibilityService eligibilityService;
 	@GetMapping("/seller")
-	public boolean isSellerEligible(@RequestParam(value = "sellername", defaultValue = "World") String sellerName,
+	private boolean isSellerEligible(@RequestParam(value = "sellername", defaultValue = "World") String sellerName,
 			@RequestParam(value = "programname", defaultValue = "remote location shipping program") String programName)
 	{
 		ProgramEntity program = programRepository.findByProgramNameAndActiveInd(programName,"Y");
 		if(null!=program)
-		return sellerRepository.findBySellerNameAndProgramId(sellerName.toLowerCase(),program.programId)==null?false:true;
+		return sellerRepository.findBySellerName(sellerName.toLowerCase())==null?false:true;
 		return false;
 	}
 	
 	@GetMapping("/category")
-	public boolean isCategoryEligible(@RequestParam(value = "categoryid") Integer categoryId)
+	private boolean isCategoryEligible(@RequestParam(value = "categoryid") Integer categoryId)
 	{
 		
 		return categoryRepository.findByCategoryId(categoryId)==null?false:true;
@@ -44,7 +44,7 @@ public class ItemEligibilityController {
 	}
 	
 	@GetMapping("/price")
-	public boolean isItemPriceGreaterThanMinimumPrice(@RequestParam(value = "itemprice") Double itemPrice)
+	private boolean isItemPriceGreaterThanMinimumPrice(@RequestParam(value = "itemprice") Double itemPrice)
 	{
 		
 		return priceRepository.findByMinPriceLessThanEqual(itemPrice)==null?false:true;
@@ -55,7 +55,7 @@ public class ItemEligibilityController {
 	public ResponseEntity<String> isItemEligible(@RequestParam(value = "itemname") String itemName,
 			@RequestParam(value = "sellername") String sellerName,
 			@RequestParam(value = "categoryid") Integer categoryId,
-			@RequestParam(value = "minprice") Double minPrice)
+			@RequestParam(value = "price") Double minPrice)
 	{
 		if(eligibilityService.isItemEligible(sellerName, categoryId, minPrice))
 			return ResponseEntity.ok("Item "+itemName+" is eligible for the new eBay shipping program");

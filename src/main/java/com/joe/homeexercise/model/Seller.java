@@ -22,8 +22,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Seller {
 	private String userName;
-	private Integer programId;
-	
-	
 
 }
