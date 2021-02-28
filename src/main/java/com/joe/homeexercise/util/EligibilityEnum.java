@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.joe.homeexercise;
+package com.joe.homeexercise.util;
 
 /**
  * @author Joe

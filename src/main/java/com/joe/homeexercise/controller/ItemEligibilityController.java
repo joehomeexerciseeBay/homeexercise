@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.joe.homeexercise.EligibilityEnum;
+import com.joe.homeexercise.HomeExerciseTrace;
 import com.joe.homeexercise.service.ItemEligibilityService;
+import com.joe.homeexercise.util.EligibilityEnum;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -24,6 +25,7 @@ public class ItemEligibilityController {
 
 	@Operation(summary="Check if an item is eligible for the new eBay shipping program")
 	@GetMapping("/eligible")
+	@HomeExerciseTrace
 	public ResponseEntity<String> isItemEligible(@Parameter(description="Name of the item to be shipped")@RequestParam(value = "itemname") String itemName,
 			@Parameter(description="Name of the seller shipping the item")@RequestParam(value = "sellername") String sellerName,
 			@Parameter(description="Identifier of the category to which the item belongs")@RequestParam(value = "categoryid") Integer categoryId,

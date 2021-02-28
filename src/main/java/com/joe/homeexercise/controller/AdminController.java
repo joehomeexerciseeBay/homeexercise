@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.joe.homeexercise.HomeExerciseTrace;
 import com.joe.homeexercise.model.Category;
 import com.joe.homeexercise.model.CategoryEntity;
 import com.joe.homeexercise.model.Price;
@@ -47,6 +48,7 @@ public class AdminController {
 	@GetMapping(value="/getallsellers",produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Get all sellers enrolled to new eBay shipping program")
+	@HomeExerciseTrace
 	public List<SellerEntity> getAllSellers()
 	{
 		return sellerRepository.findAll();
@@ -56,6 +58,7 @@ public class AdminController {
 	@PostMapping(value="/enrollsellertoshippingprogram",produces=MediaType.TEXT_HTML_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Enroll a seller to new eBay shipping program.")
+	@HomeExerciseTrace
 	public ResponseEntity<String> addSellerToProgram(@RequestBody Seller seller)
 	{
 		if(null==sellerRepository.findBySellerNameIgnoreCase(seller.getSellerName()))
@@ -67,6 +70,7 @@ public class AdminController {
 	@DeleteMapping(value="/dischargesellerfromshippingprogram",produces=MediaType.TEXT_HTML_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Discharge a seller from new eBay shipping program.")
+	@HomeExerciseTrace
 	public ResponseEntity<String> dischargeSellerFromProgram(@RequestBody Seller seller)
 	{
 		if(null!=sellerRepository.findBySellerNameIgnoreCase(seller.getSellerName()))
@@ -78,6 +82,7 @@ public class AdminController {
 	@PostMapping(value="/addcategorytoshippingprogram",produces=MediaType.TEXT_HTML_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Add a category to new eBay shipping program.")
+	@HomeExerciseTrace
 	public ResponseEntity<String> addCategoryToApprovedList(@RequestBody Category category)
 	{
 		CategoryEntity entity = categoryRepository.findByCategoryNameIgnoreCase(category.getCategoryName());
@@ -90,6 +95,7 @@ public class AdminController {
 	@GetMapping(value="/getallpreapprovedcategories",produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Get all preapproved categories")
+	@HomeExerciseTrace
 	public List<CategoryEntity> getAllPreApprovedCategories()
 	{
 		return categoryRepository.findAll();
@@ -99,6 +105,7 @@ public class AdminController {
 	@DeleteMapping(value="/deletecategoryfromshippingprogram",produces=MediaType.TEXT_HTML_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Delete category from new eBay shipping program.")
+	@HomeExerciseTrace
 	public ResponseEntity<String> deleteCategoryFromShippingProgram(@RequestBody Category category)
 	{
 		if(null!=categoryRepository.findByCategoryNameIgnoreCase(category.getCategoryName()))
@@ -110,6 +117,7 @@ public class AdminController {
 	@GetMapping(value="/getminimumprice",produces=MediaType.TEXT_HTML_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Get Minimum price for an item to be eligible for new eBay shipping program")
+	@HomeExerciseTrace
 	public ResponseEntity<String> getMinimumPrice()
 	{
 		return ResponseEntity.ok("Minumum price for an item to be qualified for new eBay shipping program is "+Currency.getInstance(Locale.US).getSymbol(Locale.US)+""+ priceRepository.findAll().get(0).getMinPrice());
@@ -119,11 +127,12 @@ public class AdminController {
 	@PostMapping(value="/changeminimumprice",produces=MediaType.TEXT_HTML_VALUE,consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ExternalDocumentation(description = "Change minimum price for an item to be eligible for new eBay shipping program")
+	@HomeExerciseTrace
 	public ResponseEntity<String> updateMinPrice(@RequestBody Price price)
 	{
 		priceRepository.deleteAll();
 		priceRepository.saveAndFlush(new PriceEntity(price.getMinimumPrice()));
-		return ResponseEntity.ok("Minimum price is changed to "+Currency.getInstance(Locale.US).getSymbol(Locale.US)+""+price.getMinimumPrice());
+		return ResponseEntity.ok("Minimum price is changed to "+Currency.getInstance(Locale.getDefault()).getSymbol(Locale.getDefault())+""+price.getMinimumPrice());
 	}
 
 }
