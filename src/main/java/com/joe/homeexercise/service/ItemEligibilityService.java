@@ -49,16 +49,12 @@ public class ItemEligibilityService {
 	
 	private boolean isCategoryEligible(Integer categoryId)
 	{
-		
 		return categoryRepository.findByCategoryId(categoryId)==null?false:true;
-		
 	}
 	
 	private boolean isItemPriceGreaterThanMinimumPrice(Double itemPrice)
 	{
-		
 		return priceRepository.findByMinPriceLessThanEqual(itemPrice)==null?false:true;
-		
 	}
 
 }

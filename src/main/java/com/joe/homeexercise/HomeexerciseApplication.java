@@ -11,7 +11,6 @@ public class HomeexerciseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HomeexerciseApplication.class, args);
-		System.out.println("Hello eBay from Joe");
 	}
 	
 	@Configuration

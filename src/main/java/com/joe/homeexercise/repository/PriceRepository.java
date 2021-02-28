@@ -6,5 +6,4 @@ import com.joe.homeexercise.model.PriceEntity;
 
 public interface PriceRepository extends JpaRepository<PriceEntity, Double> {
 	PriceEntity findByMinPriceLessThanEqual(Double price);
-
 }
