@@ -6,10 +6,8 @@ package com.joe.homeexercise.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.joe.homeexercise.model.ProgramEntity;
 import com.joe.homeexercise.repository.CategoryRepository;
 import com.joe.homeexercise.repository.PriceRepository;
-import com.joe.homeexercise.repository.ProgramRepository;
 import com.joe.homeexercise.repository.SellerRepository;
 
 /**
@@ -21,8 +19,6 @@ public class ItemEligibilityService {
 	
 	@Autowired
 	private SellerRepository sellerRepository;
-	@Autowired
-	private ProgramRepository programRepository;
 	@Autowired
 	private CategoryRepository categoryRepository;
 	@Autowired
@@ -41,10 +37,7 @@ public class ItemEligibilityService {
 	
 	private boolean isSellerEligible(String sellerName)
 	{
-		ProgramEntity program = programRepository.findByProgramNameAndActiveInd("remote location shipping program","Y");
-		if(null!=program)
 		return sellerRepository.findBySellerName(sellerName.toLowerCase())==null?false:true;
-		return false;
 	}
 	
 	private boolean isCategoryEligible(Integer categoryId)
