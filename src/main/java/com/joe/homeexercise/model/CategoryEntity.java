@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.joe.homeexercise.model;
 
 import java.io.Serializable;
@@ -13,30 +16,33 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Joe
+ *
+ */
 @SuppressWarnings("serial")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 
-@Table(name="Seller")
-public class SellerEntity implements Serializable {
-	
+@Table(name="Approved_category")
+public class CategoryEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="SELLER_ID")
-	private Integer sellerId;
+	@Column(name="CATEGORY_ID")
+	private Integer categoryId;
 	
-	@Column(name="USER_NAME")
-	private String sellerName;
+	@Column(name="CATEGORY_NAME")
+	private String categoryName;
 	
-	@Column(name="PROGRAM_ID")
-	private Integer programId; 
-
-	 public SellerEntity(String sellerName,Integer programId)
-	 {
-		 this.sellerName=sellerName;
-		 this.programId=programId;
-	 }
+	@Column(name="DESCRIPTION")
+	private String description; 
+	
+	public CategoryEntity(String categoryName,String description){
+		this.categoryName=categoryName;
+		this.description=description;
+		
+	}
 
 }

@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.joe.homeexercise.model;
 
 import java.io.Serializable;
@@ -8,27 +11,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Joe
+ *
+ */
 @SuppressWarnings("serial")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="Program")
-public class ProgramEntity implements Serializable {
-	@Id
-	@Column(name="PROGRAM_ID")
-	public Integer programId;
-	
-	@Column(name="PROGRAM_NAME")
-	public String programName;
-	
-	@Column(name="ACTIVE_IND")
-	public String activeInd;
 
+@Table(name="Minimum_price")
+public class PriceEntity implements Serializable{
+	@Id
+	@Column(name="Price")
+	private Double minPrice;
 
 }
