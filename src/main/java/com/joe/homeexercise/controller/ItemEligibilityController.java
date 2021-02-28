@@ -1,5 +1,8 @@
 package com.joe.homeexercise.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.joe.homeexercise.EligibilityEnum;
 import com.joe.homeexercise.service.ItemEligibilityService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,9 +30,32 @@ public class ItemEligibilityController {
 			@Parameter(description="Identifier of the category to which the item belongs")@RequestParam(value = "categoryid") Integer categoryId,
 			@Parameter(description="Price of the item in USD")@RequestParam(value = "price") Double minPrice)
 	{
-		if(eligibilityService.isItemEligible(sellerName, categoryId, minPrice))
+		StringBuilder sb = new StringBuilder();
+		List<EligibilityEnum>  inEligibleArray= eligibilityService.isItemEligible(sellerName, categoryId, minPrice);
+		if(inEligibleArray.size()==0)
 			return ResponseEntity.ok(itemName+" is eligible for the new eBay shipping program");
-		return ResponseEntity.ok(itemName+" is not eligible for the new eBay shipping program");
+		sb.append(itemName+" is not eligible for the new eBay shipping program because \n");
+		for(EligibilityEnum inEligible:inEligibleArray)
+		{
+			
+			if(inEligible.equals(EligibilityEnum.SELLER))
+			{
+				sb.append(sellerName+" is not enrolled to the new eBay shipping program. Please contact eBay to enroll seller. \n");
+				continue;
+			}
+			if(inEligible.equals(EligibilityEnum.CATEGORY))
+			{
+				sb.append(categoryId+" is not an approved category for the new eBay shipping program. Please contact eBay to add your category to approved list. \n");
+				continue;
+			}
+			if(inEligible.equals(EligibilityEnum.PRICE))
+			{
+				sb.append(minPrice+" is less than minimum price for the new eBay shipping program, Please contact eBay to get minimum price. \n");
+				continue;
+			}
+			
+		}
+		return ResponseEntity.ok(sb.toString());
 	}
 
 }

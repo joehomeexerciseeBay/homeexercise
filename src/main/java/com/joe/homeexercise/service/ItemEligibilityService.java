@@ -3,9 +3,15 @@
  */
 package com.joe.homeexercise.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.joe.homeexercise.EligibilityEnum;
 import com.joe.homeexercise.repository.CategoryRepository;
 import com.joe.homeexercise.repository.PriceRepository;
 import com.joe.homeexercise.repository.SellerRepository;
@@ -24,15 +30,16 @@ public class ItemEligibilityService {
 	@Autowired
 	private PriceRepository priceRepository;
 	
-	public boolean isItemEligible(String sellerName,Integer categoryId,Double minPrice)
+	public List<EligibilityEnum> isItemEligible(String sellerName,Integer categoryId,Double minPrice)
 	{
-		if(!isSellerEligible(sellerName.toLowerCase()))
-			return false;
+		List<EligibilityEnum> result = new ArrayList<>();
+		if(!isSellerEligible(sellerName))
+			result.add(EligibilityEnum.SELLER);
 		if(!isCategoryEligible(categoryId))
-			return false;
+			result.add(EligibilityEnum.CATEGORY);
 		if(!isItemPriceGreaterThanMinimumPrice(minPrice))
-			return false;
-		return true;
+			result.add(EligibilityEnum.PRICE);
+		return result;
 	}
 	
 	private boolean isSellerEligible(String sellerName)
