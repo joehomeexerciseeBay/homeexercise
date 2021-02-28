@@ -15,6 +15,6 @@ import com.joe.homeexercise.model.SellerEntity;
 
 @Repository
 public interface SellerRepository extends JpaRepository<SellerEntity, Integer>{
-	SellerEntity findBySellerName(String name);
-	void deleteBySellerName(String sellerName);
+	SellerEntity findBySellerNameIgnoreCase(String name);
+	void deleteBySellerNameIgnoreCase(String sellerName);
 }

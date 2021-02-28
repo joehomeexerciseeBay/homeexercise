@@ -26,7 +26,7 @@ public class ItemEligibilityService {
 	
 	public boolean isItemEligible(String sellerName,Integer categoryId,Double minPrice)
 	{
-		if(!isSellerEligible(sellerName))
+		if(!isSellerEligible(sellerName.toLowerCase()))
 			return false;
 		if(!isCategoryEligible(categoryId))
 			return false;
@@ -37,7 +37,7 @@ public class ItemEligibilityService {
 	
 	private boolean isSellerEligible(String sellerName)
 	{
-		return sellerRepository.findBySellerName(sellerName.toLowerCase())==null?false:true;
+		return sellerRepository.findBySellerNameIgnoreCase(sellerName)==null?false:true;
 	}
 	
 	private boolean isCategoryEligible(Integer categoryId)

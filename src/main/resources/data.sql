@@ -20,9 +20,11 @@ CREATE TABLE seller (
 );
 
 INSERT INTO seller (user_name) VALUES
-  ('john.doe@org1.com'),
-  ('joe.doe'),
-  ('samlam_seller');
+  ('Apple'),
+  ('Huggies'),
+  ('GE'),
+  ('Panasonic'),
+  ('Gillette');
 
   DROP TABLE IF EXISTS approved_category;
   

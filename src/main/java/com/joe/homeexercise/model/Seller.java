@@ -21,6 +21,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Seller {
-	private String userName;
+	private String sellerName;
 
 }

@@ -14,5 +14,5 @@ import com.joe.homeexercise.model.CategoryEntity;
 public interface CategoryRepository extends JpaRepository<CategoryEntity, Integer> {
 	
 	CategoryEntity findByCategoryId(Integer categoryId);
-	CategoryEntity findByCategoryName(String categoryName);
+	CategoryEntity findByCategoryNameIgnoreCase(String categoryName);
 }

@@ -14,6 +14,6 @@ import com.joe.homeexercise.model.ProgramEntity;
 public interface ProgramRepository extends JpaRepository<ProgramEntity, Integer> {
 	ProgramEntity findByProgramName(String programName);
 	//String activeInd = "Y";
-	ProgramEntity findByProgramNameAndActiveInd(String programName,String activeInd);
+	ProgramEntity findByProgramNameIgnoreCaseAndActiveInd(String programName,String activeInd);
 
 }
