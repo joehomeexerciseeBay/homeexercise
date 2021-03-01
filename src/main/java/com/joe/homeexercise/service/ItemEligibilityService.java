@@ -30,6 +30,14 @@ public class ItemEligibilityService {
 	@Autowired
 	private PriceRepository priceRepository;
 	
+	/**
+	 * Service method that checks if an item is eligible for the shipping program.
+	 * It returns a list of strings containing the ineligible criteria.
+	 * @param sellerName
+	 * @param categoryId
+	 * @param minPrice
+	 * @return
+	 */
 	@HomeExerciseTrace
 	public List<EligibilityEnum> isItemEligible(String sellerName,Integer categoryId,Double minPrice)
 	{
