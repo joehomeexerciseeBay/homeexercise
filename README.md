@@ -14,6 +14,7 @@
  
  If using windows cmd prompt use: gradlew build
  
+ NOTE: Tested application in windows and mac but not in linux machine.
  
  This will download the dependencies from maven central. Make sure firewall is not blocking access to internet.
  
