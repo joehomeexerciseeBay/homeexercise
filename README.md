@@ -39,7 +39,7 @@
    1) /api/item/eligible (Check if an item is eligible for the shipping program)
 
 As an alternate these apis can be called directly from browser also.
-I strongly recommend to use swagger-ui to have better user experience.
+I strongly recommend using swagger-ui to have better user experience.
 
 Database:
 
@@ -54,5 +54,16 @@ Exception Handling:
 Customized ResponseEntityExceptionHandler is created which will handle all application exceptions generated
 by the service during request handling.
 
+Toolset:
+ 1) JDK 13.0.2. Should be backwards compatible
+ 2) Spring Boot v2.4.3
+ 3) Spring v5.3.4
+ 4) Hibernate v5.4.28 (Spring data JPA defaults to hibernate)
+ 5) springdoc-openapi-ui v1.5.4 (includes swagger-ui support)
 
+Documentation:
+ swagger-ui
+ 
+ 
+ 
    
