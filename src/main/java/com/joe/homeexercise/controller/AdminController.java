@@ -7,6 +7,7 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.joe.homeexercise.HomeExerciseTrace;
+import com.joe.homeexercise.exceptions.ErrorIDs;
+import com.joe.homeexercise.exceptions.HomeExerciseApplicationException;
 import com.joe.homeexercise.model.Category;
 import com.joe.homeexercise.model.CategoryEntity;
 import com.joe.homeexercise.model.Price;
@@ -49,9 +53,15 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Get all sellers enrolled to new eBay shipping program")
 	@HomeExerciseTrace
-	public List<SellerEntity> getAllSellers()
+	public List<SellerEntity> getAllSellers() throws HomeExerciseApplicationException
 	{
+		try {
 		return sellerRepository.findAll();
+		}
+		catch(Exception ex)
+		{
+			throw new HomeExerciseApplicationException(ErrorIDs.SERVER_ERROR,"Server error");
+		}
 	}
 	
 	@Operation(summary="Enroll a seller to new eBay shipping program")
@@ -59,7 +69,7 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Enroll a seller to new eBay shipping program.")
 	@HomeExerciseTrace
-	public ResponseEntity<String> addSellerToProgram(@RequestBody Seller seller)
+	public ResponseEntity<String> addSellerToProgram(@RequestBody Seller seller) throws HomeExerciseApplicationException
 	{
 		if(null==sellerRepository.findBySellerNameIgnoreCase(seller.getSellerName()))
 		sellerRepository.saveAndFlush(new SellerEntity(seller.getSellerName()));
@@ -71,7 +81,7 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Discharge a seller from new eBay shipping program.")
 	@HomeExerciseTrace
-	public ResponseEntity<String> dischargeSellerFromProgram(@RequestBody Seller seller)
+	public ResponseEntity<String> dischargeSellerFromProgram(@RequestBody Seller seller) throws HomeExerciseApplicationException
 	{
 		if(null!=sellerRepository.findBySellerNameIgnoreCase(seller.getSellerName()))
 		sellerRepository.deleteById(sellerRepository.findBySellerNameIgnoreCase(seller.getSellerName()).getSellerId());
@@ -83,7 +93,7 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Add a category to new eBay shipping program.")
 	@HomeExerciseTrace
-	public ResponseEntity<String> addCategoryToApprovedList(@RequestBody Category category)
+	public ResponseEntity<String> addCategoryToApprovedList(@RequestBody Category category) throws HomeExerciseApplicationException
 	{
 		CategoryEntity entity = categoryRepository.findByCategoryNameIgnoreCase(category.getCategoryName());
 		if(null==entity)
@@ -96,7 +106,7 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Get all preapproved categories")
 	@HomeExerciseTrace
-	public List<CategoryEntity> getAllPreApprovedCategories()
+	public List<CategoryEntity> getAllPreApprovedCategories() throws HomeExerciseApplicationException
 	{
 		return categoryRepository.findAll();
 	}
@@ -106,7 +116,7 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Delete category from new eBay shipping program.")
 	@HomeExerciseTrace
-	public ResponseEntity<String> deleteCategoryFromShippingProgram(@RequestBody Category category)
+	public ResponseEntity<String> deleteCategoryFromShippingProgram(@RequestBody Category category) throws HomeExerciseApplicationException
 	{
 		if(null!=categoryRepository.findByCategoryNameIgnoreCase(category.getCategoryName()))
 			categoryRepository.deleteById(categoryRepository.findByCategoryNameIgnoreCase(category.getCategoryName()).getCategoryId());
@@ -118,7 +128,7 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Get Minimum price for an item to be eligible for new eBay shipping program")
 	@HomeExerciseTrace
-	public ResponseEntity<String> getMinimumPrice()
+	public ResponseEntity<String> getMinimumPrice() throws HomeExerciseApplicationException
 	{
 		return ResponseEntity.ok("Minumum price for an item to be qualified for new eBay shipping program is "+Currency.getInstance(Locale.US).getSymbol(Locale.US)+""+ priceRepository.findAll().get(0).getMinPrice());
 	}
@@ -128,11 +138,12 @@ public class AdminController {
 	@ResponseBody
 	@ExternalDocumentation(description = "Change minimum price for an item to be eligible for new eBay shipping program")
 	@HomeExerciseTrace
-	public ResponseEntity<String> updateMinPrice(@RequestBody Price price)
+	public ResponseEntity<String> updateMinPrice(@RequestBody Price price) throws HomeExerciseApplicationException
 	{
 		priceRepository.deleteAll();
 		priceRepository.saveAndFlush(new PriceEntity(price.getMinimumPrice()));
 		return ResponseEntity.ok("Minimum price is changed to "+Currency.getInstance(Locale.getDefault()).getSymbol(Locale.getDefault())+""+price.getMinimumPrice());
+	
 	}
 
 }

@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.joe.homeexercise.HomeExerciseTrace;
+import com.joe.homeexercise.exceptions.ErrorIDs;
+import com.joe.homeexercise.exceptions.HomeExerciseApplicationException;
 import com.joe.homeexercise.service.ItemEligibilityService;
 import com.joe.homeexercise.util.EligibilityEnum;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("api/item")
 public class ItemEligibilityController {
@@ -29,8 +33,13 @@ public class ItemEligibilityController {
 	public ResponseEntity<String> isItemEligible(@Parameter(description="Name of the item to be shipped")@RequestParam(value = "itemname") String itemName,
 			@Parameter(description="Name of the seller shipping the item")@RequestParam(value = "sellername") String sellerName,
 			@Parameter(description="Identifier of the category to which the item belongs")@RequestParam(value = "categoryid") Integer categoryId,
-			@Parameter(description="Price of the item in USD")@RequestParam(value = "price") Double minPrice)
+			@Parameter(description="Price of the item in USD")@RequestParam(value = "price") Double minPrice) throws HomeExerciseApplicationException
 	{
+		if(itemName==null)
+		{
+			log.error("Item name cannot be blank");
+			throw new HomeExerciseApplicationException(ErrorIDs.BAD_INPUTS,"Bad user inputs");
+		}
 		StringBuilder sb = new StringBuilder();
 		List<EligibilityEnum>  inEligibleArray= eligibilityService.isItemEligible(sellerName, categoryId, minPrice);
 		if(inEligibleArray.size()==0)
