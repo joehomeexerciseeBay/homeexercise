@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.joe.homeexercise.HomeExerciseTrace;
 import com.joe.homeexercise.repository.CategoryRepository;
 import com.joe.homeexercise.repository.PriceRepository;
 import com.joe.homeexercise.repository.SellerRepository;
@@ -19,6 +20,7 @@ import com.joe.homeexercise.util.EligibilityEnum;
  *
  */
 @Service
+
 public class ItemEligibilityService {
 	
 	@Autowired
@@ -28,6 +30,7 @@ public class ItemEligibilityService {
 	@Autowired
 	private PriceRepository priceRepository;
 	
+	@HomeExerciseTrace
 	public List<EligibilityEnum> isItemEligible(String sellerName,Integer categoryId,Double minPrice)
 	{
 		List<EligibilityEnum> result = new ArrayList<>();
