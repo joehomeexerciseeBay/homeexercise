@@ -17,6 +17,7 @@
  Once succesfully started go to url:
  http://localhost:8080/swagger-ui.html
  This will list down the following apis 
+ 
  AdminController
    1) /api/admin/enrollsellertoshippingprogram (To enroll a seller to the shipping program)
    2) /api/admin/changeminimumprice (Change shipping program's minimum price)
@@ -26,6 +27,8 @@
    6) /api/admin/getallpreapprovedcategories (Get list of all preapproved categories for the shipping program)
    7) /api/admin/dischargesellerfromshippingprogram (Discharge a seller from the shipping program)
    8) /api/admin/deletecategoryfromshippingprogram (Delete category from the shipping program)
+
+
  ItemEligibilityController
    1) /api/item/eligible (Check if an item is eligible for the shipping program)
 
