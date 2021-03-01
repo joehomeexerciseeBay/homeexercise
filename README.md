@@ -43,7 +43,7 @@ I strongly recommend to use swagger-ui to have better user experience.
 
 Database:
 
-Java In-memory h2 databse is used. During start up table create scripts are run and sample data set inserted.
+Java In-memory h2 database is used. During start up table create scripts are run and sample data set inserted.
 
 Logging:
 
