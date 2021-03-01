@@ -42,4 +42,17 @@ As an alternate these apis can be called directly from browser also.
 I strongly recommend to use swagger-ui to have better user experience.
 
 Database:
+
+Java In-memory h2 databse is used. During start up table create scripts are run and sample data set inserted.
+
+Logging:
+
+slf4j is used for logging. Using AOP the method entry and exit logs are logged to console. All methods are annotated using a custom annotation to achieve this.
+
+Exception Handling:
+
+Customized ResponseEntityExceptionHandler is created which will handle all application exceptions generated
+by the service during request handling.
+
+
    
