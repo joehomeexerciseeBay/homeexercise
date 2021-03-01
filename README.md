@@ -10,7 +10,8 @@
  
  Once cloned build project using the gradle wrapper command from /homeexercise folder. You will see a file .gradlew at this folder location.
  
- ./gradlew build 
+ ./gradlew build
+ 
  This will download the dependencies from maven central. Make sure firewall is not blocking access to internet.
  
  After the project is built, use below gradle command to run the springboot application at port 8080:
