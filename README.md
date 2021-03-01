@@ -10,13 +10,16 @@
  
  Once cloned build project using the gradle wrapper command from /homeexercise folder. You will see a file .gradlew at this folder location.
  
- ./gradlew build
+ If using git bash then use command: ./gradlew build
+ If using windows cmd prompt or mac command prompt or linux command prompt then use gradlew build
+ 
  
  This will download the dependencies from maven central. Make sure firewall is not blocking access to internet.
  
  After the project is built, use below gradle command to run the springboot application at port 8080:
  
- ./gradlew bootRun 
+ If using git bash then use command: ./gradlew bootRun
+ If using windows cmd prompt or mac command prompt or linux command prompt then use: gradlew bootRun 
  
  Once succesfully started type the url in a browser:
  
@@ -79,6 +82,12 @@ System Design:
 Performance:
 
 Since In-memory database is used cache is not implemented. However if a seperate DB is used cache can be implemented to improve performance.
+
+Maintainability:
+
+Code is modularized and proper class level and method level comments included. Loose coupling of components enables easy modification of code.
+
+
 
 
 
