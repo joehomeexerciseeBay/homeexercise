@@ -63,7 +63,7 @@ Toolset:
  1) JDK 13.0.2. Should be backwards compatible
  2) Spring Boot v2.4.3
  3) Spring v5.3.4
- 4) Hibernate v5.4.28 (Spring data JPA defaults to hibernate)
+ 4) Hibernate v5.4.28 (Spring data JPA defaults to hibernate ORM)
  5) springdoc-openapi-ui v1.5.4 (includes swagger-ui support)
 
 Documentation:
