@@ -15,10 +15,13 @@
  This will download the dependencies from maven central. Make sure firewall is not blocking access to internet.
  
  After the project is built, use below gradle command to run the springboot application at port 8080:
+ 
  ./gradlew bootRun 
  
- Once succesfully started go to url:
+ Once succesfully started type the url in a browser:
+ 
  http://localhost:8080/swagger-ui.html
+ 
  This will list down the following apis 
  
  AdminController
