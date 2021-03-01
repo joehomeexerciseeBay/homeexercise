@@ -28,7 +28,7 @@
  
  http://localhost:8080/swagger-ui.html
  
- This will list down the following apis 
+ This will list down the following apis which can be tested from there
  
  AdminController
    1) /api/admin/enrollsellertoshippingprogram (To enroll a seller to the shipping program)
@@ -44,7 +44,7 @@
  ItemEligibilityController
    1) /api/item/eligible (Check if an item is eligible for the shipping program)
 
-As an alternate these apis can be called directly from browser also.
+As an alternate these apis can be called directly from browser too.
 I strongly recommend using swagger-ui to have better user experience.
 
 Database:
