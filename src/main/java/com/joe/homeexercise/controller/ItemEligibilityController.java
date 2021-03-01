@@ -27,6 +27,15 @@ public class ItemEligibilityController {
 	@Autowired
 	private ItemEligibilityService eligibilityService;
 
+	/**
+	 * Check if an item is eligible for the new eBay shipping program
+	 * @param itemName
+	 * @param sellerName
+	 * @param categoryId
+	 * @param minPrice
+	 * @return
+	 * @throws HomeExerciseApplicationException
+	 */
 	@Operation(summary="Check if an item is eligible for the new eBay shipping program")
 	@GetMapping("/eligible")
 	@HomeExerciseTrace

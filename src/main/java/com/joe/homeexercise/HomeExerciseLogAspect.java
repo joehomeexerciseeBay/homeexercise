@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 
 /**
+ * Aspect which outputs trace logs on annotated methods. 
  * @author Joe
  *
  */
