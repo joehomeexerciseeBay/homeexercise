@@ -32,9 +32,9 @@
  
        gradlew bootRun
  
-* Once succesfully started type the url in a browser:
+* Once application is started type the url in a browser:
  
- * http://localhost:8080/swagger-ui.html
+      http://localhost:8080/swagger-ui.html
  
  This will list down the following apis:
  
