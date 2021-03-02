@@ -24,7 +24,7 @@
  
  If using windows cmd prompt use: gradlew bootRun 
  
- Once succesfully started type the url in a browser:
+ * Once succesfully started type the url in a browser:
  
  http://localhost:8080/swagger-ui.html
  
