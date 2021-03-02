@@ -35,7 +35,8 @@
 * Once application is started type the url in a browser:
  
       http://localhost:8080/swagger-ui.html
- 
+**NOTE:** Make sure no other application is using port 8080.
+
  This will list down the following apis:
  
  ### AdminController
