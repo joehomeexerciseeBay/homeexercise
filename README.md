@@ -30,22 +30,22 @@
  
  This will list down the following apis which can be tested from there
  
- AdminController
-   1) /api/admin/enrollsellertoshippingprogram (To enroll a seller to the shipping program)
-   2) /api/admin/changeminimumprice (Change shipping program's minimum price)
-   3) /api/admin/addcategorytoshippingprogram (Add a new category to the shipping program
-   4) /api/admin/getminimumprice (Get Minimum price for an item to be eligible for the shipping program)
-   5) /api/admin/getallsellers (Get list of all sellers enrolled to the shipping program)
-   6) /api/admin/getallpreapprovedcategories (Get list of all preapproved categories for the shipping program)
-   7) /api/admin/dischargesellerfromshippingprogram (Discharge a seller from the shipping program)
-   8) /api/admin/deletecategoryfromshippingprogram (Delete category from the shipping program)
+ ### AdminController
+   * /api/admin/enrollsellertoshippingprogram (To enroll a seller to the shipping program)
+   * /api/admin/changeminimumprice (Change shipping program's minimum price)
+   * /api/admin/addcategorytoshippingprogram (Add a new category to the shipping program
+   * /api/admin/getminimumprice (Get Minimum price for an item to be eligible for the shipping program)
+   * /api/admin/getallsellers (Get list of all sellers enrolled to the shipping program)
+   * /api/admin/getallpreapprovedcategories (Get list of all preapproved categories for the shipping program)
+   * /api/admin/dischargesellerfromshippingprogram (Discharge a seller from the shipping program)
+   * /api/admin/deletecategoryfromshippingprogram (Delete category from the shipping program)
 
 
- ItemEligibilityController
-   1) /api/item/eligible (Check if an item is eligible for the shipping program)
+ ### ItemEligibilityController
+   * /api/item/eligible (Check if an item is eligible for the shipping program)
 
 As an alternate these apis can be called directly from browser too.
-I strongly recommend using swagger-ui to have better user experience.
+**NOTE** I strongly recommend using swagger-ui to have better user experience.
 
 ## Database:
 
