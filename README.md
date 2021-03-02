@@ -28,7 +28,7 @@
  
  * http://localhost:8080/swagger-ui.html
  
- This will list down the following apis which can be tested from there
+ This will list down the following apis:
  
  ### AdminController
    * /api/admin/enrollsellertoshippingprogram (To enroll a seller to the shipping program)
