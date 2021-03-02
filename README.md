@@ -8,7 +8,9 @@
  
     $ git clone https://github.com/joehomeexerciseeBay/homeexercise.git
     
-    $ git clone  https://github.com/joehomeexerciseeBay/homeexercise.git
+
+
+    $ git clone  git@git-ssh.web.boeing.com:BMS-Portfolio/gravity/metrics-service.git
  
  * Once cloned or unzipped, build project using the gradle wrapper command from /homeexercise folder. You will see a file "gradlew" at this folder location.
  
