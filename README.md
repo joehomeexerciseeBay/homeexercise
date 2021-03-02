@@ -46,7 +46,7 @@
 
 As an alternate these apis can be called directly from browser too.
 
-**NOTE** I strongly recommend using swagger-ui to have better user experience.
+**NOTE:** I strongly recommend using swagger-ui to have better user experience.
 
 ## Database:
 
