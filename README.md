@@ -10,9 +10,9 @@
  
  * Once cloned or unzipped, build project using the gradle wrapper command from /homeexercise folder. You will see a file "gradlew" at this folder location.
  
-  * If using git bash or mac terminal or linux terminal use command: ./gradlew build
+  * If using git bash or mac terminal or linux terminal use command: **./gradlew build**
  
-  * If using windows cmd prompt use: gradlew build
+  * If using windows cmd prompt use: **gradlew build**
  
  **NOTE**: Tested application in windows and mac but not in linux machine.
  
@@ -20,9 +20,9 @@
  
 * After the project is built, use below gradle command to run the springboot application at port 8080:
  
- * If using git bash or mac terminal or linux terminal use command: ./gradlew bootRun
+ * If using git bash or mac terminal or linux terminal use command: **./gradlew bootRun**
  
- * If using windows cmd prompt use: gradlew bootRun 
+ * If using windows cmd prompt use: **gradlew bootRun**
  
 * Once succesfully started type the url in a browser:
  
