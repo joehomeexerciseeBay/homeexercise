@@ -8,7 +8,7 @@
  
        git clone https://github.com/joehomeexerciseeBay/homeexercise.git
  
- * Once cloned or unzipped, build project using the gradle wrapper command from /homeexercise folder. You will see a file "gradlew" at this folder location.
+ * Once cloned or unzipped, build project using the gradle wrapper command from /homeexercise folder. You will see a file **gradlew** at this folder location.
  
   * If using git bash or mac terminal or linux terminal use command: 
   
