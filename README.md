@@ -47,46 +47,46 @@
 As an alternate these apis can be called directly from browser too.
 I strongly recommend using swagger-ui to have better user experience.
 
-Database:
+## Database:
 
 Java In-memory h2 database is used. During start up table create scripts are run and sample data set inserted.
 
-Logging:
+## Logging:
 
 slf4j is used for logging. Using AOP the method entry and exit logs are logged to console. All methods are annotated using a custom annotation to achieve this.
 
-Exception Handling:
+## Exception Handling:
 
 Customized ResponseEntityExceptionHandler is created which will handle all application exceptions generated
 by the service during request handling.
 
-Toolset:
+## Toolset:
  1) JDK 13.0.2. Should be backwards compatible
  2) Spring Boot v2.4.3
  3) Spring v5.3.4
  4) Hibernate v5.4.28 (Spring data JPA defaults to hibernate ORM)
  5) springdoc-openapi-ui v1.5.4 (includes swagger-ui support)
 
-Documentation:
+## Documentation:
 
  swagger-ui
  
-DataModel:
+## DataModel:
  
  The datamodel has 3 tables
   1) Seller (SellerId and SellerName)
   2) Category (CategoryId and CategoryName)
   3) Price (MinimumPrice)
 
-System Design:
+## System Design:
 
  Maintained a simple design with Controller, service and repository pattern. DTO pattern used. 2 controller classes created (ItemEligibilityController and AdminController).
  
-Performance:
+## Performance:
 
 Since In-memory database is used cache is not implemented. However if a seperate DB is used cache can be implemented to improve performance.
 
-Maintainability:
+## Maintainability:
 
 Code is modularized and proper class level and method level comments included. Loose coupling of components enables easy modification of code.
 
