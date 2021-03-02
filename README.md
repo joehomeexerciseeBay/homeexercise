@@ -20,7 +20,7 @@
  
  **NOTE**: Tested application in windows and mac but not in linux machine.
  
- This will download the dependencies from maven central. Make sure firewall is not blocking access to internet.
+ build command downloads the dependencies from maven central. Make sure firewall is not blocking access to internet.
  
 * After the project is built, use below gradle command to run the springboot application at port 8080:
  
