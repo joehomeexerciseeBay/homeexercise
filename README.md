@@ -4,15 +4,15 @@
  This service also provides admin features to modify the configurable rules.
  
  ## Project clone and setup instructions:
- Download and unzip the source repository or clone the repository using the command:
+ * Download and unzip the source repository or clone the repository using the command:
  
  git clone https://github.com/joehomeexerciseeBay/homeexercise.git
  
- Once cloned or unzipped, build project using the gradle wrapper command from /homeexercise folder. You will see a file "gradlew" at this folder location.
+ * Once cloned or unzipped, build project using the gradle wrapper command from /homeexercise folder. You will see a file "gradlew" at this folder location.
  
- If using git bash or mac terminal or linux terminal use command: ./gradlew build
+ ** If using git bash or mac terminal or linux terminal use command: ./gradlew build
  
- If using windows cmd prompt use: gradlew build
+ ** If using windows cmd prompt use: gradlew build
  
  NOTE: Tested application in windows and mac but not in linux machine.
  
