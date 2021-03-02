@@ -7,6 +7,8 @@
  * Download and unzip the source repository or clone the repository using the command:
  
     $ git clone https://github.com/joehomeexerciseeBay/homeexercise.git
+    
+    $ git clone  https://github.com/joehomeexerciseeBay/homeexercise.git
  
  * Once cloned or unzipped, build project using the gradle wrapper command from /homeexercise folder. You will see a file "gradlew" at this folder location.
  
