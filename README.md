@@ -20,7 +20,7 @@
  
 * After the project is built, use below gradle command to run the springboot application at port 8080:
  
- * If using git bash or mac terminal or linux terminal use command: ./gradlew bootRun
+ ** If using git bash or mac terminal or linux terminal use command: ./gradlew bootRun
  
  * If using windows cmd prompt use: gradlew bootRun 
  
