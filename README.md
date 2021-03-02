@@ -3,7 +3,7 @@
  is eligible to use the new shipping service provided by eBay platform.
  This service also provides admin features to modify the configurable rules.
  
- Project clone and setup instructions:
+ ## Project clone and setup instructions:
  Download and unzip the source repository or clone the repository using the command:
  
  git clone https://github.com/joehomeexerciseeBay/homeexercise.git
